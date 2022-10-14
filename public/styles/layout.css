@@ -22,7 +22,7 @@ body {
   background-color: #f4f1ec;
   font-family: 'Source Sans Pro';
   font-size: 24px;
-  background-color: rgb(93, 219, 131,0.5);
+  background-color: rgb(93, 219, 131, 0.5);
   background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
 }
 
@@ -43,7 +43,7 @@ body {
   margin: auto;
 }
 
-section textarea {
+section.new-tweet textarea {
   resize: none;
   border: none;
   font-family: 'Source Sans Pro';
@@ -53,51 +53,58 @@ section textarea {
   font-size: 24px;
 }
 
-section form {
+section.new-tweet form {
   display: flex;
   flex-direction: column;
 }
 
-section output {
+section.new-tweet output {
   float: right;
 }
 
-section {
-  height:180px;
+section.new-tweet {
+  height: 180px;
   background-color: rgba(85, 92, 134, 0.5);
   padding: 20px;
 }
+
 .tweet-container {
   min-height: 100vh;
 }
+
 article {
   margin-top: 20px;
-  height:180px;
+  height: 180px;
   display: block;
   border: 2px solid black;
   padding: 15px;
-  background-color: rgb(245, 245, 245,0.8);
-  color:black;
+  background-color: rgb(245, 245, 245, 0.8);
+  color: black;
   position: relative;
-  top:0px;
+  top: 0px;
   z-index: 1;
 }
+
 article header div {
   color: #4056A1;
 }
+
 article header img {
-  width:35px;
+  width: 35px;
 }
+
 article header p {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 article:hover {
   box-shadow: 1px 1px 1px #4056A1;
 }
+
 article footer time {
   color: #4056A1;
 }
+
 article footer span {
   float: right
 }
@@ -109,4 +116,20 @@ article footer span i {
 
 article footer span i:hover {
   color: #4056A1
+}
+
+@media only screen and (min-width: 1024px) {
+  .page-container {
+    display: flex;
+    padding-top: 140px;
+    justify-content: space-between;
+  }
+
+  header.pageHeader {
+    margin-left: 60px;
+  }
+
+  .container {
+    width: 70%;
+  }
 }
