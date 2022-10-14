@@ -60,7 +60,7 @@ $(document).ready(function() {
     e.preventDefault();
     let info = $(this).serialize();
     //check tweet length hides/show error messages
-    let string = info.split('=')[1].replaceAll('%20', '');
+    let string = info.split('=')[1].replaceAll('%20', '1');
     if (string.length > 140 || string.length === 0) {
       $('#tweetForm').hide();
       $('#error-message').slideDown('medium');
