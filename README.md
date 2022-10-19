@@ -14,3 +14,10 @@ I think the animation for a new tweet is rather good.
 
 - Express
 - Node 5.10.x or above
+
+- body-parser
+- chance
+- md5
+# devDependencies
+
+- nodemon

@@ -74,7 +74,7 @@ section.new-tweet {
 
 article {
   margin-top: 20px;
-  height: 180px;
+  min-height: 180px;
   display: block;
   border: 2px solid black;
   padding: 15px;
@@ -94,6 +94,7 @@ article header img {
 }
 
 article header p {
+  word-wrap: break-word;
   font-size: 18px;
 }
 

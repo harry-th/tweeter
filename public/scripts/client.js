@@ -30,6 +30,7 @@ let createTweetElement = function(tweetObj) {
 </article>`);
   return tweet;
 };
+
 let renderTweets = function(allTweets) {
   for (let tweet of allTweets) {
     let renTweet = createTweetElement(tweet);
@@ -47,27 +48,25 @@ let scrollButton = () => {
 
 $(document).ready(function() {
   $('#error-message').hide();
-
   // top of the page button
   //is hidden and counts scroll depth to figures if should display
   $('#upButton').hide();
   $(window).on('scroll', scrollButton);
   $('#upButton').on('click', () => $(window).scrollTop(0, 0));
 
-
-
   $('#tweetForm').on('submit', function(e) {
     e.preventDefault();
     let info = $(this).serialize();
     //check tweet length hides/show error messages
-    let string = info.split('=')[1].replaceAll('%20', '1');
+    let string = info.split('=')[1];
+    string = (decodeURIComponent(string));
     if (string.length > 140 || string.length === 0) {
       $('#tweetForm').hide();
       $('#error-message').slideDown('medium');
-      setTimeout(()=>{
+      setTimeout(() => {
         $('#tweetForm').fadeIn();
         $('#error-message').hide();
-      },4000);
+      }, 4000);
     } else {
       //adds the new tweet then retrives the collection of tweets and animates the addition
       $.post('/tweets', info).then(() => {
@@ -75,7 +74,7 @@ $(document).ready(function() {
           $('.tweet-container').empty();
           renderTweets(data);
         }).then(() => {
-        //animation new tweet
+          //animation new tweet
           $('article:first-child').css('top', '-205px').css('opacity', '0').animate({
             top: '+=10px',
             opacity: '+=1'
@@ -84,13 +83,21 @@ $(document).ready(function() {
             top: '+=195px',
           }, 1400, 'linear');
         });
+      }).then(()=>{
+        //clear tweet input field
+        setTimeout(()=>{
+          $('#tweet-text').val('').trigger('input');
+        }, 1000);
+        
       });
     }
   });
+
   //initial get for tweet
   $.get('/tweets', (data) => {
     renderTweets(data);
   });
+  
   //hide tweet form and toggle show on click
   $('.new-tweet').hide();
   $('#dropTweet').on('click', () => {
