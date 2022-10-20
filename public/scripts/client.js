@@ -4,6 +4,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
 const escapee = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
@@ -38,22 +39,8 @@ let renderTweets = function(allTweets) {
   }
 };
 
-let scrollButton = () => {
-  if ($(window).scrollTop() > 500) {
-    $('#upButton').show();
-  } else {
-    $('#upButton').hide();
-  }
-};
-
 $(document).ready(function() {
-  $('#error-message').hide();
-  // top of the page button
-  //is hidden and counts scroll depth to figures if should display
-  $('#upButton').hide();
-  $(window).on('scroll', scrollButton);
-  $('#upButton').on('click', () => $(window).scrollTop(0, 0));
-
+  //tweet submission, get and post and input handling
   $('#tweetForm').on('submit', function(e) {
     e.preventDefault();
     let info = $(this).serialize();
@@ -83,24 +70,18 @@ $(document).ready(function() {
             top: '+=195px',
           }, 1400, 'linear');
         });
-      }).then(()=>{
+      }).then(() => {
         //clear tweet input field
-        setTimeout(()=>{
+        setTimeout(() => {
           $('#tweet-text').val('').trigger('input');
         }, 1000);
         
       });
     }
   });
-
   //initial get for tweet
   $.get('/tweets', (data) => {
     renderTweets(data);
   });
-  
-  //hide tweet form and toggle show on click
-  $('.new-tweet').hide();
-  $('#dropTweet').on('click', () => {
-    $('.new-tweet').slideToggle('slow');
-  });
+
 });

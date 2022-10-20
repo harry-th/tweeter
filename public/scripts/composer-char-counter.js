@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+
+
 $(document).ready(function() {
   $('#tweet-text').on('input', function() {
     let counter = $(this).parents('section').find('output');
