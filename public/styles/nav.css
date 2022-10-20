@@ -1,0 +1,23 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 120px;
+  width: 100%;
+  background-color: #4056a1;
+  color: #ffffff;
+  position: fixed;
+  z-index: 2;
+}
+nav span {
+  font-family: "Bungee";
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
+
+.navMessage {
+  text-align: center;
+}
+.navMessage i {
+  vertical-align: bottom;
+}/*# sourceMappingURL=nav.css.map */
