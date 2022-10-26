@@ -83,6 +83,10 @@ article {
   position: relative;
   top: 0px;
   z-index: 1;
+  p {
+    word-wrap:break-word;
+    font-size: 18px;
+  }  
   &:hover {
     box-shadow: 1px 1px 1px $blueTweet;
   };
@@ -91,10 +95,6 @@ article {
     img {
       width: 35px;
     };
-    p {
-      word-wrap: break-word;
-      font-size: 18px;
-    }
   }
   footer time {
     color: $blueTweet;
